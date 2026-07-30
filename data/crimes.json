@@ -1,0 +1,19 @@
+{
+  "crime_types": [
+    {"type": "Murder", "verb": "murdered", "victim_state": "found dead"},
+    {"type": "Theft", "verb": "robbed", "victim_state": "reporting stolen property"},
+    {"type": "Corporate Espionage", "verb": "sabotaged", "victim_state": "the victim of stolen research"},
+    {"type": "Kidnapping", "verb": "kidnapped", "victim_state": "reported missing"},
+    {"type": "Arson", "verb": "attacked", "victim_state": "the owner of a burned-down property"},
+    {"type": "Fraud", "verb": "defrauded", "victim_state": "the victim of a financial scam"}
+  ],
+  "victim_names": [
+    "Dr. James Wilson", "Helena Cross", "Mr. Arthur Kane", "Isabel Moreau",
+    "Professor Liam Turner", "Charlotte Byrne", "Mr. Edward Voss", "Dr. Amara Chen"
+  ],
+  "locations": [
+    "Private Laboratory", "Downtown Office Tower", "Riverside Mansion",
+    "University Research Wing", "Harbor Warehouse", "Art Gallery",
+    "Corporate Headquarters", "Countryside Estate", "City Museum", "Tech Startup Loft"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "physical": [
+    "A partial fingerprint was lifted from the scene near {suspect}'s known contact point.",
+    "Trace fibers matching {suspect}'s clothing were found at the scene.",
+    "Security footage shows a figure resembling {suspect} near the location at the time of the crime.",
+    "A muddy footprint outside the window matches a shoe size consistent with {suspect}.",
+    "A discarded item linked to {suspect} was recovered nearby."
+  ],
+  "digital": [
+    "Phone records show {suspect} made a call to the victim shortly before the incident.",
+    "An email exchange reveals tension between {suspect} and the victim.",
+    "GPS data places {suspect}'s phone near the scene during the estimated time window.",
+    "Bank records show an unusual transaction involving {suspect} around the time of the crime.",
+    "Deleted messages recovered from a device suggest {suspect} tried to hide something."
+  ],
+  "testimony": [
+    "A witness reports hearing {suspect} arguing with the victim earlier that day.",
+    "A colleague says {suspect} seemed unusually nervous in the days before the crime.",
+    "A neighbor claims to have seen {suspect} leaving the scene late at night.",
+    "Another suspect claims {suspect} threatened the victim in the past.",
+    "Staff recall {suspect} asking unusual questions about the victim's schedule."
+  ]
+}

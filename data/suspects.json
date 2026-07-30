@@ -1,0 +1,28 @@
+{
+  "first_names": [
+    "Alice", "Mark", "Sarah", "David", "Elena", "James", "Priya", "Tom",
+    "Nora", "Victor", "Lucia", "Omar", "Grace", "Felix", "Maya", "Ben",
+    "Ingrid", "Carlos", "Ruth", "Dimitri"
+  ],
+  "last_names": [
+    "Brown", "Lewis", "Khan", "Smith", "Reyes", "Walker", "Patel", "Novak",
+    "Okafor", "Petrov", "Fontaine", "Rossi", "Nguyen", "Kessler", "Adams", "Diallo"
+  ],
+  "occupations": [
+    "Lab Technician", "Business Partner", "Personal Assistant", "Security Guard",
+    "Accountant", "Housekeeper", "Journalist", "Rival Researcher", "Neighbor",
+    "Ex-Spouse", "Family Lawyer", "Gardener", "Chauffeur", "Intern", "Investor"
+  ],
+  "relationships": [
+    "Close friend of the victim",
+    "Former business partner",
+    "Estranged family member",
+    "Recently fired employee",
+    "Romantic ex-partner",
+    "Longtime rival",
+    "Neighbor with a grudge",
+    "Creditor owed money by the victim",
+    "Someone who owed the victim money",
+    "New acquaintance with unclear motives"
+  ]
+}
