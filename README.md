@@ -78,7 +78,7 @@ AI_Crime_Detective/
 │   ├── predictor.py         # Loads the trained model, scores suspects live in-game
 │   ├── dataset.csv          # Generated on first run/train
 │   └── model.pkl            # Generated on first run/train
-├── database/
+├── data/
 │   ├── suspects.json        # Name/occupation/relationship pools
 │   ├── crimes.json          # Crime types, victims, locations
 │   └── evidence.json        # Evidence description templates
