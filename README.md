@@ -1,103 +1,125 @@
-# AI Crime Detective
+# AI Crime Detective 🕵️
 
-A Python-based detective game where you solve randomly generated crimes with a little help from machine learning.
+**It's basically like if Sherlock Holmes met `sci-kitlearn` 🔥**
 
-The idea is pretty simple: you're a detective, there's been a crime, and you've got a handful of suspects. Your job is to investigate the scene, collect evidence, question suspects, and figure out who's guilty before you run out of investigation points.
+AI Crime Detective is a Python-based, text adventure game where you investigate randomly generated crimes, question suspects, collect evidence, and try to catch the culprit before running out of investigation points.
 
-The twist? You have an AI assistant that can analyze the evidence you've collected and predict which suspects are most likely guilty. But it doesn't magically know the answer. The more you investigate, the more information it has to work with.
+**Plot twist:** you've got an AI assistant helping you crack the case.
+
+But it's not some all-knowing detective, btw. It can only work with the evidence you've uncovered, and its predictions aren't always right. So yeah, you'll still need to use your brain.
 
 ## How I built it
 
-I built this project using **Python, object-oriented programming (OOP), and machine learning.**
+I built the game using **Python, object-oriented programming (OOP), and machine learning.**
 
-The game itself uses procedural generation, meaning every new case has different suspects, victims, locations, and evidence. Behind the scenes, there's a Random Forest classifier trained using scikit-learn on 1,000 synthetically generated suspect records.
+The cases are procedurally generated, so every investigation is different. The game randomly picks a crime, victim, location, 4–5 suspects, and one actual culprit.
 
-Each suspect has seven evidence-related features, including fingerprints, DNA matches, motives, witness identification, suspicious behavior, false alibis, and digital evidence. The model uses whichever features you've uncovered to estimate guilt probabilities.
+For the AI side, I trained a **Random Forest classifier** using scikit-learn on 1,000 synthetically generated suspect records. It looks at seven features:
 
-**Tech stack:** Python, scikit-learn, pandas, joblib, JSON
+- Fingerprint and DNA evidence
+- Motive strength
+- Witness identification
+- Suspicious behavior
+- False alibis
+- Digital evidence
 
-## Features
+The model uses the information you've discovered to estimate how suspicious each suspect is. Basically, the more useful evidence you find, the better informed its predictions can be.
 
-- **Randomly generated cases:** Different crimes, locations, victims, and 4–5 suspects each time.
-- **Evidence collection:** Search crime scenes and examine physical, digital, and witness evidence.
-- **Suspect interviews:** Question suspects, check alibis, and look for suspicious behavior.
-- **AI predictions:** Use a trained Random Forest model to rank suspects based on discovered evidence.
-- **Limited investigation points:** Every major action costs points, so you can't just investigate everything.
-- **Scoring and ranks:** Earn points for solving cases and work your way from Rookie to Master Detective.
+**Tech stack:** Python · scikit-learn · pandas · joblib · JSON
 
-## Getting started
+## What can you actually do?
 
-Make sure you have Python installed, then clone the repository:
+- **Solve different cases:** Randomly generated crimes, suspects, and evidence. No two investigations have to play out the same way.
+- **Search crime scenes:** Discover physical clues, digital records, and witness statements.
+- **Interrogate suspects:** Ask questions, investigate motives, and check their alibis.
+- **Consult the AI:** Get a ranking of suspects based on their estimated guilt probabilities.
+- **Manage your resources:** You only get 18 investigation points. You can't just spam every action and hope for the best.
+- **Earn detective ranks:** Solve cases, collect points, and climb from Rookie to Master Detective.
+
+Oh, and innocent suspects can have incriminating evidence too. Wouldn't be much of a detective game otherwise.
+
+## Installation
+
+You'll need Python installed.
+
+Clone the repository and install the dependencies:
 
 ```bash
 git clone https://github.com/aztrax7/ai-crime-detective.git
 cd ai-crime-detective
 pip install scikit-learn pandas joblib
+```
+
+Then launch the game:
+
+```bash
 python main.py
 ```
 
-The project includes a saved ML model. If it's missing, the game automatically generates a synthetic dataset and trains a new model.
-
-You can also retrain it manually:
-
-```bash
-python ai/train_model.py
-```
+The repository includes a trained model. If the model file is missing, the program automatically trains one.
 
 ## How to play
 
-Once you start the game, enter your detective name and you'll receive your first case.
+Enter your detective name, read the case briefing, and start investigating.
 
-| Command | What it does | Cost |
+| Command | What it does | Points |
 |---|---|---|
-| `search` | Search for evidence | 3 |
-| `evidence` | View discovered clues | Free |
+| `search` | Search the crime scene | 3 |
+| `evidence` | View discovered evidence | Free |
 | `analyze <number>` | Examine a clue | 1 |
-| `suspects` | View the suspect list | Free |
-| `profile <name>` | Check a suspect's profile | Free |
+| `suspects` | List all suspects | Free |
+| `profile <name>` | View a suspect's profile | Free |
 | `interview <name>` | Question a suspect | 2 |
-| `ai` | Get AI guilt predictions | 2 |
+| `ai` | Run AI guilt predictions | 2 |
 | `accuse <name>` | Make your final accusation | Ends case |
-| `help` | Show available commands | Free |
-| `quit` | Exit the game | Free |
+| `help` | Display commands | Free |
+| `quit` | Leave the game | Free |
 
-You start with **18 investigation points**. Use them wisely.
+**Your starting budget: 18 investigation points.**
 
-A correct accusation earns 500 points, with bonuses for analyzing evidence linked to the culprit and using the AI. A wrong accusation costs you 300 points.
+You'll earn **500 points** for correctly identifying the culprit, plus bonuses for analyzing relevant evidence (+50 per clue) and using the AI (+100).
+
+Wrong accusation? **-300 points.** Yeah, that one's gonna hurt.
+
+## A little more about the AI
+
+The model uses a `RandomForestClassifier` with 200 decision trees, trained using an 80/20 train-test split.
+
+The training dataset is synthetic, meaning I generated simulated examples rather than using real criminal records. Each example contains seven evidence features and a label indicating whether the simulated suspect is guilty.
+
+During gameplay, the AI uses the features you've uncovered to estimate guilt probabilities and rank suspects.
+
+**Small disclaimer:** This isn't a real-world crime prediction tool. It's a fictional investigation game designed to explore how machine learning can assist with decision-making.
+
+The current version also treats undiscovered features as zero, which can affect prediction accuracy. That's something I'd like to improve.
 
 ## Project structure
 
 ```text
 ai-crime-detective/
-├── main.py           # Main game loop
-├── game/             # Cases, suspects, evidence, gameplay
-├── ai/               # Model training, predictions, dataset
-├── data/             # JSON templates for generating cases
+├── main.py          # Runs the game
+├── game/            # Game logic, cases, suspects, evidence
+├── ai/              # ML training and prediction system
+├── data/            # JSON templates for generating cases
 └── README.md
 ```
 
-## About the AI
-
-I used a **RandomForestClassifier** with 200 decision trees, trained on synthetic data with an 80/20 train-test split.
-
-The model learns patterns between evidence features and whether a simulated suspect is guilty. It then uses those patterns to make predictions during gameplay.
-
-One thing worth mentioning: this isn't an actual crime prediction system. The dataset is entirely simulated, and the model is designed for the game's fictional investigations.
-
-Also, features you haven't uncovered yet currently default to zero. That's one of the limitations I want to improve.
-
 ## What's next?
 
-A few things I'd like to add in future versions:
+A few upgrades I've got in mind:
 
-- A proper GUI instead of the terminal interface.
-- A visual evidence board connecting suspects and clues.
-- More interactive suspect interviews, possibly using an LLM.
-- Better ML evaluation and explanations for AI predictions.
-- Multiplayer investigations.
+- A proper GUI, because the terminal can only do so much.
+- An interactive evidence board linking suspects and clues.
+- More realistic interviews, potentially using an LLM.
+- Better model evaluation and explainable AI predictions.
+- Multiplayer detective mode, because why not?
 
-## Final note
+## Why I made this
 
-This project was my attempt at combining two things I find interesting: building interactive software and understanding how machine learning can support decision-making.
+I wanted to build something that combined **game development, Python, and machine learning** without making another generic prediction app.
 
-It's still a work in progress, but building the game helped me explore how different parts of a Python application can work together, from generating cases to training and using an ML model.
+And honestly, the idea of building a detective game where an AI helps you solve crimes sounded pretty cool.
+
+It's not perfect, and there are definitely things I want to improve. But it was a fun way to experiment with procedural generation, OOP, and getting an ML model to actually do something inside a playable game.
+
+**Now go solve some crimes.**
