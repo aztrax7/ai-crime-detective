@@ -8,7 +8,7 @@ The twist? You have an AI assistant that can analyze the evidence you've collect
 
 ## How I built it
 
-I built this project using **Python, object-oriented programming (OOP), and machine learning**, with AI-assisted coding along the way.
+I built this project using **Python, object-oriented programming (OOP), and machine learning.**
 
 The game itself uses procedural generation, meaning every new case has different suspects, victims, locations, and evidence. Behind the scenes, there's a Random Forest classifier trained using scikit-learn on 1,000 synthetically generated suspect records.
 
