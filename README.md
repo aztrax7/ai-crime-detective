@@ -1,6 +1,6 @@
 # AI Crime Detective 🕵️
 
-**It's basically like if Sherlock Holmes met `sci-kitlearn` 🔥**
+**It's basically like if Sherlock Holmes met `scikit-learn` 🔥**
 
 AI Crime Detective is a Python-based, text adventure game where you investigate randomly generated crimes, question suspects, collect evidence, and try to catch the culprit before running out of investigation points.
 
